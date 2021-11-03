@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
-
+import { Password } from 'primereact/password'
 
 export const Login = () => {
     const [userName, setUserName] = useState('')
@@ -25,6 +25,9 @@ export const Login = () => {
         })
         .then(res => res.text())
         .then(texto => setMessage(texto))
+
+        setUserName('')
+        setPassword('')
     }
     
     return (
@@ -42,8 +45,7 @@ export const Login = () => {
 
                 <label htmlFor="password">Password</label>
                 <br />
-                <InputText 
-                    type="text" 
+                <Password 
                     id="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
